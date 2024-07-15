@@ -1,39 +1,38 @@
-import React from 'react'
-import './Contact.css'
-import msg_icon from '../../assets/msg-icon.png'
-import mail_icon from '../../assets/mail-icon.png'
-import phone_icon from '../../assets/phone-icon.png'
-import location_icon from '../../assets/location-icon.png'
-import white_arrow from '../../assets/white-arrow.png'
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import './Contact.css';
+import msg_icon from '../../assets/msg-icon.png';
+import mail_icon from '../../assets/mail-icon.png';
+import phone_icon from '../../assets/phone-icon.png';
+import location_icon from '../../assets/location-icon.png';
+import white_arrow from '../../assets/white-arrow.png';
+
+// Replace these placeholders with your actual values
+const EMAILJS_SERVICE_ID = 'service_1z5z7qk';
+const EMAILJS_TEMPLATE_ID = 'template id';
+const EMAILJS_USER_ID = 'publickey';
 
 const Contact = () => {
+  const [result, setResult] = useState("");
 
-    const [result, setResult] = React.useState("");
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending...");
 
-    const onSubmit = async (event) => {
-      event.preventDefault();
-      setResult("Sending....");
-      const formData = new FormData(event.target);
-
-      // ------Enter your web3forms access key below-------
-      
-      formData.append("access_key", "-----Enter your web3forms key----");
-  
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      }).then((res) => res.json());
-  
-      if (res.success) {
-        console.log("Success", res);
-        setResult(res.message);
-        event.target.reset();
-      } else {
-        console.log("Error", res);
-        setResult(res.message);
-      }
-    };
-
+    emailjs.sendForm(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      event.target,
+      EMAILJS_USER_ID
+    ).then((response) => {
+      console.log('Success!', response.status, response.text);
+      setResult("Message sent successfully!");
+      event.target.reset();
+    }, (error) => {
+      console.log('Failed...', error);
+      setResult("Failed to send message.");
+    });
+  };
 
   return (
     <div className='contact'>
@@ -58,10 +57,8 @@ const Contact = () => {
         </form>
         <span>{result}</span>
       </div>
-
-      
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
