@@ -1,15 +1,20 @@
-import React from 'react'
-import './Programs.css'
-import program_1 from '../../assets/program-1.png'
-import program_2 from '../../assets/program-2.png'
-import program_3 from '../../assets/program-3.png'
-import program_icon_1 from '../../assets/program-icon-1.png'
-import program_icon_2 from '../../assets/program-icon-2.png'
-import program_icon_3 from '../../assets/program-icon-3.png'
+import React from 'react';
+import { Link } from 'react-scroll';
+import './Projects.css';
+import program_1 from '../../assets/program-1.png';
+import program_2 from '../../assets/program-2.png';
+import program_3 from '../../assets/program-3.png';
+import program_icon_1 from '../../assets/program-icon-1.png';
+import program_icon_2 from '../../assets/program-icon-2.png';
+import program_icon_3 from '../../assets/program-icon-3.png';
 
-const Programs = () => {
+const Projects = () => {
   return (
-    <div className='programs'>
+
+    <>
+    
+    <div id="projects" className="projects">
+      
       <div className="program">
         <img src={program_1} alt="" />
         <div className="caption">
@@ -17,6 +22,7 @@ const Programs = () => {
             <p>Graduation Degree</p>
         </div>
       </div>
+
       <div className="program">
         <img src={program_2} alt="" />
         <div className="caption">
@@ -32,7 +38,8 @@ const Programs = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
-export default Programs
+export default Projects;

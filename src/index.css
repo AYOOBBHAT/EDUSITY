@@ -1,25 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
 }
-body{
+
+body {
   background: #F5F5F5;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
   line-height: 1;
   cursor: pointer;
 }
-.container{
-  padding-left: 10%;
-  padding-right: 10%;
+
+.container {
+  padding-left: 0%;
+  padding-right: 0%;
 }
-.btn{
+
+.btn {
   background: #FFF;
   color: #212121;
   padding: 14px 25px;
@@ -32,23 +36,35 @@ a{
   align-items: center;
   justify-content: center;
 }
-.btn img{
+
+.btn img {
   width: 20px;
   margin-left: 10px;
 }
-.btn.dark-btn{
+
+.btn.dark-btn {
   background: #212EA0;
   color: #fff;
 }
 
-/* ----- media query ----------- */
+.section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px; /* Adjust as needed */
+  box-sizing: border-box;
+}
 
-@media (max-width: 1200px){
-  .container{
+/* ----- media query ----------- */
+@media (max-width: 1200px) {
+  .container {
     padding-left: 5%;
     padding-right: 5%;
   }
-  .btn{
+
+  .btn {
     padding: 14px 22px;
   }
 }

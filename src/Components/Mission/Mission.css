@@ -1,4 +1,6 @@
-.campus{
+.mission{
+    top:10%;
+    height: 100vh;
     margin: 80px auto;
     width: 90%;
     text-align: center;
@@ -10,7 +12,7 @@
     margin-bottom: 40px;
 }
 .gallery img{
-    width: 23%;
+    width: 25%;
     border-radius: 10px;
 }
 /* ------- media query ------------- */

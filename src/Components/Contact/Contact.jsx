@@ -58,6 +58,8 @@ const Contact = () => {
         </form>
         <span>{result}</span>
       </div>
+
+      
     </div>
   )
 }
